@@ -1,0 +1,109 @@
+/* Estilo base del cuerpo */
+body {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* Contenedor principal */
+.container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* Título principal */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+/* Texto de presentación */
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  opacity: 0;
+}
+
+/* Imagen de perfil */
+.profile-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+/* Efecto hover en la imagen de perfil */
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* Botón personalizado */
+.btn-custom {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+  opacity: 0;
+}
+
+/* Efecto hover en el botón personalizado */
+.btn-custom:hover {
+  background-color: #0056b3;
+}
+
+/* Sección personal */
+.personal-section {
+  margin-top: 50px;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Clases de animación */
+.animate-fadeIn {
+  animation: fadeIn 1s forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 1s forwards;
+}
+
+/* Tiempos de retraso para las animaciones */
+.animate-fadeIn:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+.animate-fadeIn:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.profile-img.animate-fadeIn {
+  animation-delay: 1.5s;
+}
+
+.btn-custom.animate-fadeIn {
+  animation-delay: 2s;
+}
+
+.personal-section.animate-slideIn {
+  animation-delay: 1.8s;
+}
