@@ -3,10 +3,11 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { SobreMiComponent } from './components/sobre-mi/sobre-mi.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
-
+import { ItemFraseComponent } from './components/item-frase/item-frase.component';
 export const routes: Routes = [
     { path: '', component: InicioComponent },
     { path: 'sobre-mi', component: SobreMiComponent },
     { path: 'proyectos', component: ProyectosComponent },
-    { path: 'contacto', component: ContactoComponent }
+    { path: 'contacto', component: ContactoComponent },
+
 ];
