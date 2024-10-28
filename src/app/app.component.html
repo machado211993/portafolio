@@ -56,14 +56,23 @@
     <!-- Aquí Angular mostrará el contenido del componente según la ruta -->
     <router-outlet></router-outlet>
   </div>
-  <h1>Frases de Los Simpsons</h1>
+  <!--<h1>API de Los Simpsons</h1>
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-4" *ngFor="let frase of frases">
         <app-item-frase [frase]="frase"></app-item-frase>
       </div>
     </div>
+  </div>-->
+  <h1>API de Gatitos</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let gato of gatos">
+        <app-item-gatos [gato]="gato"></app-item-gatos>
+      </div>
+    </div>
   </div>
+
   <!-- Footer -->
   <footer
     class="bg-light text-center text-lg-start mt-auto"

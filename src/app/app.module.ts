@@ -9,6 +9,7 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemFraseComponent } from './components/item-frase/item-frase.component';
+import { ItemGatosComponent } from './components/item-gatos/item-gatos.component';
 
 
 
@@ -24,6 +25,7 @@ import { ItemFraseComponent } from './components/item-frase/item-frase.component
     ProyectosComponent,  // Importar el componente aquí
     ContactoComponent,
     ItemFraseComponent,
+    ItemGatosComponent,
     HttpClientModule   // Importar el componente aquí
   ],
   providers: [HttpClientModule],
