@@ -1,0 +1,31 @@
+<!-- src/app/components/weather/weather.component.html -->
+
+<div class="weather-container">
+  <h2>Estado del Clima</h2>
+
+  <!-- Campo para ingresar la ciudad -->
+  <div class="city-input">
+    <input
+      type="text"
+      [(ngModel)]="city"
+      (ngModelChange)="onCityChange()"
+      placeholder="Ingresa el nombre de la ciudad"
+    />
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Mostrar datos del clima -->
+  <div *ngIf="weatherData" class="weather-info">
+    <h3>{{ weatherData.name }}</h3>
+    <p><strong>Temperatura:</strong> {{ weatherData.main.temp }}°C</p>
+    <p>
+      <strong>Descripción:</strong> {{ weatherData.weather[0].description }}
+    </p>
+    <p><strong>Humedad:</strong> {{ weatherData.main.humidity }}%</p>
+    <p><strong>Viento:</strong> {{ weatherData.wind.speed }} m/s</p>
+  </div>
+</div>

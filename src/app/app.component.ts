@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpsonApiService } from './services/simpson-api.service';
 import { Ifrase } from './frase.model';
-import { GatosApiService } from './services/gatos-api.service';
-import { Igatos } from './gatos.model';
+import { ObrasApiService } from './services/obras-api.service';
+import { Iobra } from './obras.model';
+
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,16 @@ import { Igatos } from './gatos.model';
   styleUrls: ['./app.component.css'],
   // No necesitas declarar HttpClient aquí, ya que se inyecta en los servicios
 })
+
 export class AppComponent implements OnInit {
   frases?: Ifrase[];
-  gatos?: Igatos[];
-
-  constructor(private api: SimpsonApiService, private api2: GatosApiService) { }
+  obras?: Iobra[];
+  //inyectamos los servicios de api
+  constructor(private api: SimpsonApiService, private api3: ObrasApiService) { }
 
   ngOnInit(): void {
     this.fetchData();
-    this.fetchGatosData();
+    this.fetchObrasData();
   }
 
   fetchData(): void {
@@ -27,9 +29,25 @@ export class AppComponent implements OnInit {
     });
   }
 
-  fetchGatosData(): void {
-    this.api2.fetchData().subscribe((data) => { // Asegúrate de que estás llamando al método correctamente
-      this.gatos = data; // Almacena los datos de gatos
+  fetchObrasData(): void {
+    this.api3.fetchData().subscribe((data) => {
+      this.obras = data;
     });
   }
+  templateDriven = false;
+  reactiveForm = false;
+  formArray = false;
+
+  toggleTemplateDriven(): void {
+    this.templateDriven = !this.templateDriven;
+  }
+
+  toggleReactiveForm(): void {
+    this.reactiveForm = !this.reactiveForm;
+  }
+
+  toggleFormArray = (): void => {
+    this.formArray = !this.formArray;
+  };
+
 }

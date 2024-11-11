@@ -4,7 +4,9 @@
 <div class="card" style="width: 100%">
   <img [src]="frase.image" class="card-img-top" alt="..." />
   <div class="card-body">
-    <h5 class="card-title">{{ frase.character }}</h5>
+    <h5 class="card-title">
+      <a routerLink="/personaje/{{ frase.character }}">{{ frase.character }}</a>
+    </h5>
     <p class="card-text">
       {{ frase.quote }}
     </p>

@@ -1,0 +1,60 @@
+/* src/app/components/weather/weather.component.css */
+
+/*.weather-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.city-input input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.weather-info p {
+  margin: 5px 0;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}*/
+
+/* src/app/components/weather/weather.component.css */
+
+.weather-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.city-input input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.weather-info img {
+  width: 64px;
+  height: 64px;
+}
+
+.weather-info p {
+  margin: 5px 0;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}

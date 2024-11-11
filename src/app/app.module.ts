@@ -10,25 +10,43 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ItemFraseComponent } from './components/item-frase/item-frase.component';
 import { ItemGatosComponent } from './components/item-gatos/item-gatos.component';
+import { ObrasApiService } from './services/obras-api.service';
+import { ItemObrasComponent } from './components/item-obras/item-obras.component';
+import { CommonModule } from '@angular/common';
+import { PersonajeComponent } from './components/personaje/personaje.component';
+import { FormsModule } from '@angular/forms';
+import { FormulariosComponent } from './components/formularios/formularios.component';
+import { ApiGatitosComponent } from "./components/api-gatitos/api-gatitos.component";
+import { WeatherComponent } from './components/weather/weather.component';
+import { WeatherService } from './services/weather-service.service';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    InicioComponent,     // Importar el componente aquí
-    SobreMiComponent,    // Importar el componente aquí
-    ProyectosComponent,  // Importar el componente aquí
+    InicioComponent, // Importar el componente aquí
+    SobreMiComponent, // Importar el componente aquí
+    ProyectosComponent, // Importar el componente aquí
+    ApiGatitosComponent,
     ContactoComponent,
     ItemFraseComponent,
     ItemGatosComponent,
-    HttpClientModule   // Importar el componente aquí
+    ItemObrasComponent,
+    PersonajeComponent,
+    FormulariosComponent,
+    CommonModule,
+    FormsModule,
+    HttpClientModule // Importar el componente aquí
+    ,
+    ApiGatitosComponent
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

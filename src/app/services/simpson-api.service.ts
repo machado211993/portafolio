@@ -8,7 +8,7 @@ import { Ifrase } from '../frase.model';
 })
 export class SimpsonApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } ///inyeccion de http
 
   fetchData(): Observable<Ifrase[]> {
     return this.http

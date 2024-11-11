@@ -1,0 +1,11 @@
+<!--API-->
+<h1>API de Gatitos</h1>
+<!--aca tendria que venir la variable gatos con el arreglo lleno de gatitos de la api-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let gato of gatos">
+      <!--llama al arreglo de gatos de app.component.ts-->
+      <app-item-gatos [gato]="gato"></app-item-gatos>
+    </div>
+  </div>
+</div>

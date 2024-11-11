@@ -1,0 +1,13 @@
+<div class="card" style="width: 100%">
+  <img
+    *ngIf="imagenBase64"
+    [src]="imagenBase64"
+    class="card-img-top"
+    alt="{{ obra.nombreObra }}"
+  />
+
+  <div class="card-body">
+    <h5 class="card-title">{{ obra.nombreObra }}</h5>
+    <p class="card-text">{{ obra.altaObra }}</p>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 <div class="d-flex flex-column min-vh-100">
+  <!--navbar-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/">
@@ -46,17 +47,29 @@
               >Contacto</a
             >
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/apis" routerLinkActive="active"
+              >Apis</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/clima" routerLinkActive="active"
+              >Estado del Tiempo</a
+            >
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!--RUTAS-->
   <!-- Contenedor para el contenido principal -->
   <div class="flex-grow-1">
     <!-- Aquí Angular mostrará el contenido del componente según la ruta -->
     <router-outlet></router-outlet>
   </div>
-  <!--<h1>API de Los Simpsons</h1>
+  <!--API
+  <h1>API de Los Simpsons</h1>
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-4" *ngFor="let frase of frases">
@@ -64,14 +77,16 @@
       </div>
     </div>
   </div>-->
-  <h1>API de Gatitos</h1>
+
+  <!--API
+  <h1>API de obras</h1>
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let gato of gatos">
-        <app-item-gatos [gato]="gato"></app-item-gatos>
+      <div class="col-md-4 mb-4" *ngFor="let obra of obras">
+        <app-item-obras [obra]="obra"></app-item-obras>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <!-- Footer -->
   <footer
