@@ -5,15 +5,37 @@
   >
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" routerLink="/">
-        <img
-          src="assets/images/portafolio.png"
-          alt="Mi Portafolio"
-          width="40"
-          height="40"
-          class="d-inline-block me-2"
-        />
+        <svg width="40" height="40" viewBox="0 0 40 40" class="logo-svg me-2">
+          <defs>
+            <linearGradient
+              id="logoGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" style="stop-color: #667eea; stop-opacity: 1" />
+              <stop
+                offset="100%"
+                style="stop-color: #764ba2; stop-opacity: 1"
+              />
+            </linearGradient>
+          </defs>
+          <rect width="40" height="40" rx="8" fill="url(#logoGradient)" />
+          <text
+            x="50%"
+            y="50%"
+            text-anchor="middle"
+            dy=".35em"
+            fill="white"
+            font-size="18"
+            font-weight="bold"
+          >
+            JM
+          </text>
+        </svg>
         <span class="fw-bold text-primary d-none d-sm-inline"
-          >Mi Portafolio</span
+          >José Machado</span
         >
       </a>
 
