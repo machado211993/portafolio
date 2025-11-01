@@ -1,74 +1,323 @@
-<div class="container mt-5">
-  <h2>Sobre Mí</h2>
-  <p>
-    Soy un desarrollador con experiencia en diversas tecnologías que me permiten
-    crear aplicaciones web eficientes y efectivas. Aquí hay algunas de las
-    tecnologías que manejo:
-  </p>
+<div class="about-container py-5">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center animate-fadeIn">
+        <h2 class="display-4 fw-bold mb-4">Sobre Mí</h2>
+        <p class="lead text-muted mb-4">
+          Desarrollador Full Stack apasionado por crear soluciones tecnológicas
+          innovadoras. Con experiencia en el desarrollo de aplicaciones web
+          robustas y escalables.
+        </p>
+      </div>
+    </div>
 
-  <div class="row text-center mt-4">
-    <div class="col">
-      <img
-        src="assets\images\java-logo.png"
-        alt="Java"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>Java</h5>
+    <!-- Profile Section -->
+    <div class="row align-items-center mb-5 animate-fadeIn">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="profile-content">
+          <h3 class="fw-bold mb-4">¿Quién soy?</h3>
+          <p class="text-muted mb-3">
+            Soy un desarrollador con sólida experiencia en el stack completo de
+            desarrollo web. Me especializo en crear aplicaciones eficientes,
+            escalables y centradas en el usuario.
+          </p>
+          <p class="text-muted mb-4">
+            Mi enfoque está en escribir código limpio, mantener las mejores
+            prácticas y estar siempre actualizado con las últimas tecnologías
+            del mercado.
+          </p>
+
+          <!-- Stats -->
+          <div class="row g-3 mb-4">
+            <div class="col-6">
+              <div class="stat-card p-3 bg-light rounded-3 text-center">
+                <h4 class="fw-bold text-primary mb-0">3+</h4>
+                <small class="text-muted">Años de Experiencia</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-card p-3 bg-light rounded-3 text-center">
+                <h4 class="fw-bold text-primary mb-0">10+</h4>
+                <small class="text-muted">Proyectos Completados</small>
+              </div>
+            </div>
+          </div>
+
+          <a routerLink="/contacto" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-envelope me-2"></i>Trabajemos Juntos
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="skills-illustration">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop"
+            alt="Trabajo en equipo"
+            class="img-fluid rounded-4 shadow-lg"
+          />
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <img
-        src="assets/images/springboot-logo.png"
-        alt="Spring Boot"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>Spring Boot</h5>
+
+    <!-- Technologies Section -->
+    <div class="technologies-section">
+      <div class="text-center mb-5 animate-fadeIn">
+        <h3 class="fw-bold mb-3">Stack Tecnológico</h3>
+        <p class="text-muted">Tecnologías y herramientas con las que trabajo</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Java -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/java-logo.png"
+                alt="Java"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">Java</h6>
+            <small class="text-muted">Backend Development</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-danger"
+                role="progressbar"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spring Boot -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.1s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/springboot-logo.png"
+                alt="Spring Boot"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">Spring Boot</h6>
+            <small class="text-muted">Framework Backend</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-success"
+                role="progressbar"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Angular -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.2s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/angular-logo.png"
+                alt="Angular"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">Angular</h6>
+            <small class="text-muted">Frontend Framework</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-danger"
+                role="progressbar"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.3s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/mysql-logo.png"
+                alt="MySQL"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">MySQL</h6>
+            <small class="text-muted">Database</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-info"
+                role="progressbar"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HTML5 -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.4s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/html5-logo.png"
+                alt="HTML5"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">HTML5</h6>
+            <small class="text-muted">Markup Language</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-warning"
+                role="progressbar"
+                style="width: 95%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CSS3 -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.5s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/css-logo.png"
+                alt="CSS3"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">CSS3</h6>
+            <small class="text-muted">Styling</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.6s"
+          >
+            <div class="tech-icon mb-3">
+              <img
+                src="assets/images/ts-logo.png"
+                alt="TypeScript"
+                class="img-fluid"
+                width="60"
+              />
+            </div>
+            <h6 class="fw-bold mb-2">TypeScript</h6>
+            <small class="text-muted">Programming Language</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <div class="col-lg-3 col-md-4 col-6">
+          <div
+            class="tech-card text-center p-4 bg-white rounded-3 shadow-sm h-100 animate-scaleIn"
+            style="animation-delay: 0.7s"
+          >
+            <div class="tech-icon mb-3">
+              <i
+                class="bi bi-bootstrap-fill text-primary"
+                style="font-size: 3rem"
+              ></i>
+            </div>
+            <h6 class="fw-bold mb-2">Bootstrap</h6>
+            <small class="text-muted">CSS Framework</small>
+            <div class="progress mt-3" style="height: 5px">
+              <div
+                class="progress-bar bg-primary"
+                role="progressbar"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-      <img
-        src="assets/images/angular-logo.png"
-        alt="Angular"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>Angular</h5>
-    </div>
-    <div class="col">
-      <img
-        src="assets/images/mysql-logo.png"
-        alt="MySQL"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>MySQL</h5>
-    </div>
-    <div class="col">
-      <img
-        src="assets/images/html5-logo.png"
-        alt="HTML"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>HTML</h5>
-    </div>
-    <div class="col">
-      <img
-        src="assets/images/css-logo.png"
-        alt="CSS"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>CSS</h5>
-    </div>
-    <div class="col">
-      <img
-        src="assets/images/ts-logo.png"
-        alt="TypeScript"
-        class="img-fluid"
-        width="80"
-      />
-      <h5>TypeScript</h5>
+
+    <!-- Additional Skills -->
+    <div class="additional-skills mt-5 animate-fadeIn">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <div class="skill-item p-4 bg-light rounded-3 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-code-square text-primary fs-2 me-3"></i>
+              <h5 class="fw-bold mb-0">Clean Code</h5>
+            </div>
+            <p class="text-muted mb-0">
+              Código limpio, mantenible y siguiendo las mejores prácticas de la
+              industria.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="skill-item p-4 bg-light rounded-3 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-git text-primary fs-2 me-3"></i>
+              <h5 class="fw-bold mb-0">Version Control</h5>
+            </div>
+            <p class="text-muted mb-0">
+              Experiencia con Git y GitHub para control de versiones y
+              colaboración.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+          <div class="skill-item p-4 bg-light rounded-3 h-100">
+            <div class="d-flex align-items-center mb-3">
+              <i class="bi bi-phone text-primary fs-2 me-3"></i>
+              <h5 class="fw-bold mb-0">Responsive Design</h5>
+            </div>
+            <p class="text-muted mb-0">
+              Diseños adaptativos que funcionan perfectamente en todos los
+              dispositivos.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

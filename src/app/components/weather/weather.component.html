@@ -1,31 +1,220 @@
-<!-- src/app/components/weather/weather.component.html -->
+<div class="weather-container py-5">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="text-center mb-5 animate-fadeIn">
+      <h2 class="display-4 fw-bold mb-3">
+        <i class="bi bi-cloud-sun me-3"></i>Estado del Clima
+      </h2>
+      <p class="lead text-muted">
+        Consulta el clima en tiempo real de cualquier ciudad
+      </p>
+    </div>
 
-<div class="weather-container">
-  <h2>Estado del Clima</h2>
+    <!-- Search Section -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 col-md-8">
+        <div
+          class="search-card bg-white rounded-4 shadow-sm p-4 animate-slideIn"
+        >
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bg-transparent border-end-0">
+              <i class="bi bi-search text-muted"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control border-start-0 ps-0"
+              [(ngModel)]="city"
+              (keyup.enter)="getWeather()"
+              placeholder="Buscar ciudad..."
+              aria-label="Buscar ciudad"
+            />
+            <button
+              class="btn btn-primary px-4"
+              type="button"
+              (click)="getWeather()"
+            >
+              <i class="bi bi-arrow-right-circle me-2"></i>Buscar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- Campo para ingresar la ciudad -->
-  <div class="city-input">
-    <input
-      type="text"
-      [(ngModel)]="city"
-      (ngModelChange)="onCityChange()"
-      placeholder="Ingresa el nombre de la ciudad"
-    />
-  </div>
+    <!-- Error Message -->
+    <div class="row justify-content-center" *ngIf="errorMessage">
+      <div class="col-lg-6 col-md-8">
+        <div
+          class="alert alert-danger alert-dismissible fade show animate-shake"
+          role="alert"
+        >
+          <i class="bi bi-exclamation-triangle-fill me-2"></i>
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
 
-  <!-- Mensaje de error -->
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
+    <!-- Weather Data -->
+    <div class="row justify-content-center" *ngIf="weatherData">
+      <div class="col-lg-8">
+        <!-- Main Weather Card -->
+        <div
+          class="weather-card bg-gradient-primary text-white rounded-4 shadow-lg p-5 mb-4 animate-fadeInUp"
+        >
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+              <div class="location-info mb-3">
+                <h3 class="display-5 fw-bold mb-2">
+                  <i class="bi bi-geo-alt-fill me-2"></i>{{ weatherData.name }}
+                </h3>
+                <p class="mb-0 opacity-75">{{ weatherData.sys.country }}</p>
+              </div>
 
-  <!-- Mostrar datos del clima -->
-  <div *ngIf="weatherData" class="weather-info">
-    <h3>{{ weatherData.name }}</h3>
-    <p><strong>Temperatura:</strong> {{ weatherData.main.temp }}°C</p>
-    <p>
-      <strong>Descripción:</strong> {{ weatherData.weather[0].description }}
-    </p>
-    <p><strong>Humedad:</strong> {{ weatherData.main.humidity }}%</p>
-    <p><strong>Viento:</strong> {{ weatherData.wind.speed }} m/s</p>
+              <div class="temperature-display">
+                <h1 class="display-1 fw-bold mb-0">
+                  {{ weatherData.main.temp | number : "1.0-0" }}°
+                </h1>
+                <p class="lead mb-0">
+                  {{ weatherData.weather[0].description | titlecase }}
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-6 text-center">
+              <div class="weather-icon-large mb-3">
+                <img
+                  [src]="
+                    'https://openweathermap.org/img/wn/' +
+                    weatherData.weather[0].icon +
+                    '@4x.png'
+                  "
+                  [alt]="weatherData.weather[0].description"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="feels-like">
+                <p class="mb-0 opacity-75">Sensación térmica</p>
+                <h4 class="fw-bold">
+                  {{ weatherData.main.feels_like | number : "1.0-0" }}°C
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weather Details Grid -->
+        <div class="row g-3 animate-fadeInUp" style="animation-delay: 0.2s">
+          <!-- Humidity -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="detail-card bg-white rounded-3 shadow-sm p-4 h-100 text-center"
+            >
+              <div
+                class="icon-wrapper bg-info bg-opacity-10 rounded-circle p-3 mx-auto mb-3"
+                style="width: 60px; height: 60px"
+              >
+                <i class="bi bi-droplet-fill text-info fs-4"></i>
+              </div>
+              <h6 class="text-muted mb-2">Humedad</h6>
+              <h3 class="fw-bold mb-0">{{ weatherData.main.humidity }}%</h3>
+            </div>
+          </div>
+
+          <!-- Wind Speed -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="detail-card bg-white rounded-3 shadow-sm p-4 h-100 text-center"
+            >
+              <div
+                class="icon-wrapper bg-success bg-opacity-10 rounded-circle p-3 mx-auto mb-3"
+                style="width: 60px; height: 60px"
+              >
+                <i class="bi bi-wind text-success fs-4"></i>
+              </div>
+              <h6 class="text-muted mb-2">Viento</h6>
+              <h3 class="fw-bold mb-0">
+                {{ weatherData.wind.speed | number : "1.1-1" }} m/s
+              </h3>
+            </div>
+          </div>
+
+          <!-- Pressure -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="detail-card bg-white rounded-3 shadow-sm p-4 h-100 text-center"
+            >
+              <div
+                class="icon-wrapper bg-warning bg-opacity-10 rounded-circle p-3 mx-auto mb-3"
+                style="width: 60px; height: 60px"
+              >
+                <i class="bi bi-speedometer2 text-warning fs-4"></i>
+              </div>
+              <h6 class="text-muted mb-2">Presión</h6>
+              <h3 class="fw-bold mb-0">{{ weatherData.main.pressure }} hPa</h3>
+            </div>
+          </div>
+
+          <!-- Visibility -->
+          <div class="col-md-6 col-lg-3">
+            <div
+              class="detail-card bg-white rounded-3 shadow-sm p-4 h-100 text-center"
+            >
+              <div
+                class="icon-wrapper bg-primary bg-opacity-10 rounded-circle p-3 mx-auto mb-3"
+                style="width: 60px; height: 60px"
+              >
+                <i class="bi bi-eye-fill text-primary fs-4"></i>
+              </div>
+              <h6 class="text-muted mb-2">Visibilidad</h6>
+              <h3 class="fw-bold mb-0">
+                {{ weatherData.visibility / 1000 | number : "1.1-1" }} km
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div
+          class="additional-info mt-4 animate-fadeInUp"
+          style="animation-delay: 0.3s"
+        >
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div
+                class="info-item bg-white rounded-3 shadow-sm p-3 d-flex align-items-center"
+              >
+                <i class="bi bi-thermometer-sun text-danger fs-3 me-3"></i>
+                <div>
+                  <small class="text-muted d-block">Temp. Máxima</small>
+                  <h5 class="fw-bold mb-0">
+                    {{ weatherData.main.temp_max | number : "1.0-0" }}°C
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div
+                class="info-item bg-white rounded-3 shadow-sm p-3 d-flex align-items-center"
+              >
+                <i class="bi bi-thermometer-snow text-primary fs-3 me-3"></i>
+                <div>
+                  <small class="text-muted d-block">Temp. Mínima</small>
+                  <h5 class="fw-bold mb-0">
+                    {{ weatherData.main.temp_min | number : "1.0-0" }}°C
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State (opcional, puedes agregar una variable isLoading en el TS) -->
+    <!-- <div class="text-center py-5" *ngIf="isLoading">
+      <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p class="mt-3 text-muted">Obteniendo datos del clima...</p>
+    </div> -->
   </div>
 </div>

@@ -1,18 +1,24 @@
 <div class="d-flex flex-column min-vh-100">
-  <!--navbar-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">
+  <!-- Navbar mejorado -->
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+  >
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" routerLink="/">
         <img
           src="assets/images/portafolio.png"
           alt="Mi Portafolio"
           width="40"
-          height="30"
-          class="d-inline-block align-text-top"
+          height="40"
+          class="d-inline-block me-2"
         />
+        <span class="fw-bold text-primary d-none d-sm-inline"
+          >Mi Portafolio</span
+        >
       </a>
+
       <button
-        class="navbar-toggler"
+        class="navbar-toggler border-0"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
@@ -22,81 +28,107 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto gap-lg-2">
           <li class="nav-item">
-            <a class="nav-link" routerLink="/" routerLinkActive="active"
-              >Inicio</a
+            <a
+              class="nav-link px-3 rounded"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/sobre-mi" routerLinkActive="active"
-              >Sobre Mí</a
-            >
+              Inicio
+            </a>
           </li>
           <li class="nav-item">
             <a
-              class="nav-link"
+              class="nav-link px-3 rounded"
+              routerLink="/sobre-mi"
+              routerLinkActive="active"
+            >
+              Sobre Mí
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link px-3 rounded"
               routerLink="/proyectos"
               routerLinkActive="active"
-              >Proyectos</a
             >
+              Proyectos
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/contacto" routerLinkActive="active"
-              >Contacto</a
+            <a
+              class="nav-link px-3 rounded"
+              routerLink="/contacto"
+              routerLinkActive="active"
             >
+              Contacto
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/apis" routerLinkActive="active"
-              >Apis</a
+            <a
+              class="nav-link px-3 rounded"
+              routerLink="/apis"
+              routerLinkActive="active"
             >
+              APIs
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/clima" routerLinkActive="active"
-              >Estado del Tiempo</a
+            <a
+              class="nav-link px-3 rounded"
+              routerLink="/clima"
+              routerLinkActive="active"
             >
+              <i class="bi bi-cloud-sun me-1"></i>Clima
+            </a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!--RUTAS-->
-  <!-- Contenedor para el contenido principal -->
-  <div class="flex-grow-1">
-    <!-- Aquí Angular mostrará el contenido del componente según la ruta -->
+  <!-- Contenido principal -->
+  <main class="flex-grow-1">
     <router-outlet></router-outlet>
-  </div>
-  <!--API
-  <h1>API de Los Simpsons</h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let frase of frases">
-        <app-item-frase [frase]="frase"></app-item-frase>
-      </div>
-    </div>
-  </div>-->
+  </main>
 
-  <!--API
-  <h1>API de obras</h1>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let obra of obras">
-        <app-item-obras [obra]="obra"></app-item-obras>
+  <!-- Footer mejorado -->
+  <footer class="bg-dark text-white mt-auto">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">
+            © 2024 Mi Portafolio. Todos los derechos reservados.
+          </p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <a
+            href="#"
+            class="text-white text-decoration-none me-3"
+            aria-label="LinkedIn"
+          >
+            <i class="bi bi-linkedin fs-5"></i>
+          </a>
+          <a
+            href="#"
+            class="text-white text-decoration-none me-3"
+            aria-label="GitHub"
+          >
+            <i class="bi bi-github fs-5"></i>
+          </a>
+          <a
+            href="#"
+            class="text-white text-decoration-none"
+            aria-label="Email"
+          >
+            <i class="bi bi-envelope fs-5"></i>
+          </a>
+        </div>
       </div>
-    </div>
-  </div>-->
-
-  <!-- Footer -->
-  <footer
-    class="bg-light text-center text-lg-start mt-auto"
-    style="padding-top: 20px; padding-bottom: 20px"
-  >
-    <div class="container p-4">
-      <p class="text-muted">
-        © 2024 Mi Portafolio. Todos los derechos reservados.
-      </p>
     </div>
   </footer>
 </div>

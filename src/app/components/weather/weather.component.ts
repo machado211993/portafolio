@@ -2,43 +2,49 @@
 
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather-service.service';
-import { CommonModule } from '@angular/common';
-
 
 @Component({
-
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
-
 })
 export class WeatherComponent implements OnInit {
-
-  city: string = 'Corrientes'; // Ciudad predeterminada
+  city: string = 'Corrientes';
   weatherData: any;
   errorMessage: string = '';
+  isLoading: boolean = false; // Opcional: para mostrar spinner
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {
     this.getWeather();
   }
 
   getWeather(): void {
-    this.weatherService.getWeather(this.city).subscribe(
-      (data) => {
+    if (!this.city.trim()) {
+      this.errorMessage = 'Por favor, ingresa el nombre de una ciudad.';
+      return;
+    }
+
+    this.isLoading = true;
+    this.errorMessage = '';
+
+    this.weatherService.getWeather(this.city).subscribe({
+      next: (data) => {
         this.weatherData = data;
         this.errorMessage = '';
+        this.isLoading = false;
       },
-      (error) => {
-        this.errorMessage = 'No se pudo obtener el clima. Verifica el nombre de la ciudad.';
+      error: (error) => {
+        this.errorMessage =
+          'No se pudo obtener el clima. Verifica el nombre de la ciudad.';
         this.weatherData = null;
-      }
-    );
+        this.isLoading = false;
+      },
+    });
   }
 
   onCityChange(): void {
     this.getWeather();
   }
 }
-

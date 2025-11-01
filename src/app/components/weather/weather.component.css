@@ -1,60 +1,220 @@
-/* src/app/components/weather/weather.component.css */
-
-/*.weather-container {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.city-input input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.weather-info p {
-  margin: 5px 0;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-}*/
-
-/* src/app/components/weather/weather.component.css */
-
+/* Weather Container */
 .weather-container {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.city-input input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+/* Search Card */
+.search-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.weather-info img {
-  width: 64px;
-  height: 64px;
+.search-card:focus-within {
+  border-color: var(--bs-primary);
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2) !important;
 }
 
-.weather-info p {
-  margin: 5px 0;
+.input-group-text {
+  border: 2px solid #dee2e6;
 }
 
-.error-message {
-  color: red;
-  font-weight: bold;
+.form-control {
+  border: 2px solid #dee2e6;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #dee2e6;
+}
+
+/* Weather Card */
+.weather-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.temperature-display {
+  position: relative;
+  z-index: 1;
+}
+
+.weather-icon-large {
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+}
+
+.weather-icon-large img {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Detail Cards */
+.detail-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.detail-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--bs-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.detail-card:hover .icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Additional Info */
+.info-item {
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Alert */
+.alert {
+  border: none;
+  border-radius: 12px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.8s ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .weather-card {
+    padding: 2rem !important;
+  }
+
+  .temperature-display h1 {
+    font-size: 4rem;
+  }
+
+  .detail-card {
+    margin-bottom: 1rem;
+  }
+
+  .input-group-lg .form-control {
+    font-size: 1rem;
+  }
+}
+
+/* Loading Spinner Enhancement */
+.spinner-border {
+  border-width: 0.3em;
 }

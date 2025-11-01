@@ -1,0 +1,128 @@
+/* Projects Container */
+.projects-container {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* Project Cards */
+.project-card {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-img-top {
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+/* Gradients for card headers */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.bg-gradient-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+/* Tech Stack Badges */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.tech-stack .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.tech-stack .badge:hover {
+  transform: scale(1.1);
+}
+
+.tech-stack img {
+  vertical-align: middle;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-lg {
+  padding: 12px 40px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .card-img-top {
+    height: 150px !important;
+  }
+
+  .card-img-top i {
+    font-size: 3rem !important;
+  }
+
+  .btn-lg {
+    padding: 10px 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .col-md-6:nth-child(3) {
+    margin: 0 auto;
+  }
+}

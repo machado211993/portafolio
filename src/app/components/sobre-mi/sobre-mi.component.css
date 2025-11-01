@@ -1,0 +1,174 @@
+/* About Container */
+.about-container {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+/* Profile Content */
+.profile-content {
+  animation: fadeIn 1s ease-out;
+}
+
+.profile-content h3 {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.profile-content h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--bs-primary);
+  border-radius: 2px;
+}
+
+/* Stats Cards */
+.stat-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.stat-card:hover {
+  border-color: var(--bs-primary);
+  transform: translateY(-5px);
+}
+
+/* Skills Illustration */
+.skills-illustration img {
+  animation: slideIn 1s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.skills-illustration img:hover {
+  transform: scale(1.05);
+}
+
+/* Tech Cards */
+.tech-card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.tech-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--bs-primary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.tech-icon {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icon img {
+  transition: transform 0.3s ease;
+  filter: grayscale(20%);
+}
+
+.tech-card:hover .tech-icon img {
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
+/* Progress Bars */
+.progress {
+  background-color: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  transition: width 1.5s ease;
+  border-radius: 10px;
+}
+
+/* Additional Skills */
+.skill-item {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.skill-item:hover {
+  background-color: white !important;
+  border-color: var(--bs-primary);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .profile-content h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .profile-content {
+    text-align: center;
+  }
+
+  .profile-content .btn {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .tech-icon {
+    height: 50px;
+  }
+
+  .tech-icon img {
+    max-width: 50px;
+  }
+
+  .stat-card h4 {
+    font-size: 1.5rem;
+  }
+}

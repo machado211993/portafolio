@@ -1,7 +1,57 @@
-<div class="card" style="width: 100%">
-  <img [src]="gato?.url" class="card-img-top" alt="Gato" />
-  <div class="card-body">
-    <h5 class="card-title">{{ gato.width }} px</h5>
-    <p class="card-text">{{ gato.height }} px</p>
+<div class="cat-card">
+  <div class="card h-100 border-0 shadow-sm">
+    <div class="image-wrapper position-relative overflow-hidden">
+      <img
+        [src]="gato.url"
+        [alt]="'Gato ' + gato.id"
+        class="card-img-top cat-image"
+        loading="lazy"
+      />
+      <div class="image-overlay">
+        <div class="overlay-content">
+          <i class="bi bi-heart-fill text-white fs-1 mb-2"></i>
+          <p class="text-white mb-0">¡Adorable!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="badge-group">
+          <span class="badge bg-primary">
+            <i class="bi bi-arrows-angle-expand me-1"></i>
+            {{ gato.width }} × {{ gato.height }}
+          </span>
+        </div>
+        <button
+          class="btn btn-sm btn-outline-danger heart-btn"
+          aria-label="Me gusta"
+        >
+          <i class="bi bi-heart"></i>
+        </button>
+      </div>
+
+      <div class="cat-info">
+        <div class="info-item d-flex align-items-center mb-2">
+          <i class="bi bi-rulers text-muted me-2"></i>
+          <small class="text-muted">Ancho: {{ gato.width }}px</small>
+        </div>
+        <div class="info-item d-flex align-items-center">
+          <i class="bi bi-arrows-vertical text-muted me-2"></i>
+          <small class="text-muted">Alto: {{ gato.height }}px</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer bg-transparent border-0 pt-0 pb-3 px-3">
+      <a
+        [href]="gato.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary w-100"
+      >
+        <i class="bi bi-download me-2"></i>Ver Original
+      </a>
+    </div>
   </div>
 </div>
