@@ -1,17 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
-/* Estilos para navegación activa */
-.nav-link {
-  transition: all 0.3s ease;
-  font-weight: 500;
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+/* Google Fonts — importación única global */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap");
+
+/* Reset base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.nav-link:hover {
-  background-color: rgba(13, 110, 253, 0.1);
-}
-
-.nav-link.active {
-  background-color: var(--bs-primary);
-  color: white !important;
+body {
+  margin: 0;
+  padding: 0;
+  background: #080c14;
+  font-family: "DM Sans", sans-serif;
+  color: #f0f4ff;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Footer links hover */
