@@ -15,7 +15,6 @@
     <div class="contact-grid">
       <!-- Left: Info + Social -->
       <div class="contact-left">
-        <!-- Info card -->
         <div class="info-card">
           <h3 class="info-card-title">Información de contacto</h3>
 
@@ -66,7 +65,6 @@
           </div>
         </div>
 
-        <!-- Social card -->
         <div class="social-card">
           <h4 class="social-card-title">Seguime en redes</h4>
           <div class="social-links">
@@ -76,45 +74,40 @@
               rel="noopener noreferrer"
               class="social-btn social-linkedin"
               aria-label="LinkedIn"
-            >
-              <i class="bi bi-linkedin"></i>
-            </a>
+              ><i class="bi bi-linkedin"></i
+            ></a>
             <a
               href="https://github.com/machado211993"
               target="_blank"
               rel="noopener noreferrer"
               class="social-btn social-github"
               aria-label="GitHub"
-            >
-              <i class="bi bi-github"></i>
-            </a>
+              ><i class="bi bi-github"></i
+            ></a>
             <a
               href="https://www.instagram.com/manuelmachadojm"
               target="_blank"
               rel="noopener noreferrer"
               class="social-btn social-instagram"
               aria-label="Instagram"
-            >
-              <i class="bi bi-instagram"></i>
-            </a>
+              ><i class="bi bi-instagram"></i
+            ></a>
             <a
               href="https://www.facebook.com/manuel.machado.796"
               target="_blank"
               rel="noopener noreferrer"
               class="social-btn social-facebook"
               aria-label="Facebook"
-            >
-              <i class="bi bi-facebook"></i>
-            </a>
+              ><i class="bi bi-facebook"></i
+            ></a>
             <a
               href="https://api.whatsapp.com/send?phone=5493794862502"
               target="_blank"
               rel="noopener noreferrer"
               class="social-btn social-whatsapp"
               aria-label="WhatsApp"
-            >
-              <i class="bi bi-whatsapp"></i>
-            </a>
+              ><i class="bi bi-whatsapp"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -124,29 +117,51 @@
         <div class="form-card">
           <h3 class="form-card-title">Enviame un mensaje</h3>
 
-          <form class="contact-form">
+          <!-- Alerta éxito -->
+          <div class="alert-success" *ngIf="showSuccess">
+            <i class="bi bi-check-circle-fill"></i>
+            <div>
+              <strong>¡Mensaje enviado!</strong>
+              <p>
+                Te respondo a la brevedad. También te abrimos WhatsApp para que
+                puedas seguir la conversación. 🚀
+              </p>
+            </div>
+          </div>
+
+          <!-- Alerta error -->
+          <div class="alert-error" *ngIf="showError">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>{{ errorMsg }}</span>
+          </div>
+
+          <form class="contact-form" (ngSubmit)="sendMessage()">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="name">
-                  <i class="bi bi-person"></i> Nombre
+                  <i class="bi bi-person"></i> Nombre *
                 </label>
                 <input
                   type="text"
                   id="name"
                   class="form-input"
                   placeholder="Tu nombre"
+                  [(ngModel)]="formData.name"
+                  name="name"
                   required
                 />
               </div>
               <div class="form-group">
                 <label class="form-label" for="email">
-                  <i class="bi bi-envelope"></i> Email
+                  <i class="bi bi-envelope"></i> Email *
                 </label>
                 <input
                   type="email"
                   id="email"
                   class="form-input"
                   placeholder="tu@email.com"
+                  [(ngModel)]="formData.email"
+                  name="email"
                   required
                 />
               </div>
@@ -161,29 +176,35 @@
                 id="subject"
                 class="form-input"
                 placeholder="¿De qué se trata?"
-                required
+                [(ngModel)]="formData.subject"
+                name="subject"
               />
             </div>
 
             <div class="form-group">
               <label class="form-label" for="message">
-                <i class="bi bi-pencil"></i> Mensaje
+                <i class="bi bi-pencil"></i> Mensaje *
               </label>
               <textarea
                 id="message"
                 class="form-input form-textarea"
                 placeholder="Contame tu idea..."
+                [(ngModel)]="formData.message"
+                name="message"
                 required
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-submit">
-              <i class="bi bi-send"></i>
-              <span>Enviar Mensaje</span>
+            <button type="submit" class="btn-submit" [disabled]="isSending">
+              <span *ngIf="!isSending">
+                <i class="bi bi-send"></i> Enviar Mensaje
+              </span>
+              <span *ngIf="isSending" class="sending-state">
+                <span class="spinner"></span> Enviando...
+              </span>
             </button>
           </form>
 
-          <!-- Quick actions -->
           <div class="quick-actions">
             <span class="quick-label">O contactá directamente:</span>
             <div class="quick-btns">

@@ -20,7 +20,6 @@
   --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ---- Section ---- */
 .contacto-section {
   background: var(--bg-base);
   padding: 100px 0 120px;
@@ -99,11 +98,7 @@
   align-items: start;
 }
 
-/* ============================================
-   LEFT COLUMN
-   ============================================ */
-
-/* Info Card */
+/* ---- Info Card ---- */
 .info-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -186,7 +181,7 @@ a.contact-item-value:hover {
   color: var(--accent);
 }
 
-/* Social Card */
+/* ---- Social Card ---- */
 .social-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -256,9 +251,7 @@ a.contact-item-value:hover {
   background: linear-gradient(135deg, #1b5e20, #25d366);
 }
 
-/* ============================================
-   RIGHT COLUMN — Form
-   ============================================ */
+/* ---- Form Card ---- */
 .form-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
@@ -334,7 +327,7 @@ a.contact-item-value:hover {
   min-height: 130px;
 }
 
-/* Submit button */
+/* ---- Submit Button ---- */
 .btn-submit {
   display: flex;
   align-items: center;
@@ -371,7 +364,14 @@ a.contact-item-value:hover {
   box-shadow: 0 8px 28px rgba(110, 231, 247, 0.15);
 }
 
-/* Quick actions */
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---- Quick Actions ---- */
 .quick-actions {
   margin-top: 28px;
   padding-top: 24px;
@@ -430,9 +430,7 @@ a.contact-item-value:hover {
   background: rgba(59, 130, 246, 0.07);
 }
 
-/* ============================================
-   CTA BANNER
-   ============================================ */
+/* ---- CTA Banner ---- */
 .cta-banner {
   position: relative;
   background: linear-gradient(
@@ -442,7 +440,7 @@ a.contact-item-value:hover {
   );
   border: 1px solid rgba(110, 231, 247, 0.15);
   border-radius: 24px;
-  padding: 48px 48px;
+  padding: 48px;
   overflow: hidden;
   animation: fadeDown 0.6s ease 0.4s both;
 }
@@ -537,9 +535,84 @@ a.contact-item-value:hover {
 .cta-arrow {
   transition: transform 0.3s ease;
 }
-
 .cta-btn:hover .cta-arrow {
   transform: translateX(4px);
+}
+
+/* ---- Alerts ---- */
+.alert-success,
+.alert-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: fadeDown 0.4s ease both;
+}
+
+.alert-success {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: #86efac;
+}
+
+.alert-success i {
+  font-size: 1.2rem;
+  color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.alert-success strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: #4ade80;
+}
+
+.alert-success p {
+  margin: 0;
+  color: #86efac;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+
+.alert-error i {
+  font-size: 1.1rem;
+  color: #ef4444;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---- Spinner ---- */
+.sending-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(110, 231, 247, 0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ---- Animations ---- */
@@ -559,12 +632,10 @@ a.contact-item-value:hover {
   .contact-grid {
     grid-template-columns: 1fr;
   }
-
   .cta-content {
     flex-direction: column;
     text-align: center;
   }
-
   .cta-btn {
     width: 100%;
     justify-content: center;
@@ -576,15 +647,12 @@ a.contact-item-value:hover {
   .contacto-section {
     padding: 60px 0 80px;
   }
-
   .form-card {
     padding: 24px;
   }
-
   .form-row {
     grid-template-columns: 1fr;
   }
-
   .cta-banner {
     padding: 32px 24px;
   }
