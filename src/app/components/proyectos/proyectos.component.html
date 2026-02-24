@@ -1,234 +1,104 @@
-<div class="projects-container py-5">
+<section class="projects-section">
+  <!-- Background decoration -->
+  <div class="bg-decoration">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
   <div class="container">
-    <!-- Header Section -->
-    <div class="text-center mb-5 animate-fadeIn">
-      <h2 class="display-4 fw-bold mb-3">Mis Proyectos</h2>
-      <p class="lead text-muted">
-        Explora algunos de los proyectos en los que he trabajado
+    <!-- Header -->
+    <div class="section-header">
+      <span class="section-eyebrow">Portafolio</span>
+      <h2 class="section-title">
+        Mis <span class="title-accent">Proyectos</span>
+      </h2>
+      <p class="section-subtitle">
+        Una selección de proyectos donde código, diseño y propósito se
+        encuentran
       </p>
+      <div class="header-line"></div>
     </div>
 
     <!-- Projects Grid -->
-    <div class="row g-4 mb-5">
-      <!-- Proyecto 1 -->
-      <div class="col-lg-4 col-md-6 animate-fadeInUp">
-        <div class="project-card card h-100 border-0 shadow-sm">
-          <div
-            class="card-img-top bg-gradient-primary d-flex align-items-center justify-content-center"
-            style="height: 200px"
-          >
-            <i class="bi bi-building text-white" style="font-size: 4rem"></i>
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold mb-3">Municipalidad de Loreto</h5>
-            <p class="card-text text-muted mb-3">
-              Sistema web desarrollado para la gestión municipal, optimizando
-              procesos administrativos y atención ciudadana.
-            </p>
-
-            <!-- Tech Stack -->
-            <div class="tech-stack mb-3">
-              <span class="badge bg-danger me-2 mb-2">
-                <img
-                  src="assets/images/angular-logo.png"
-                  alt="Angular"
-                  width="16"
-                  class="me-1"
-                />
-                Angular
-              </span>
-              <span class="badge bg-warning text-dark me-2 mb-2">
-                <img
-                  src="assets/images/html5-logo.png"
-                  alt="HTML5"
-                  width="16"
-                  class="me-1"
-                />
-                HTML5
-              </span>
-              <span class="badge bg-primary me-2 mb-2">
-                <img
-                  src="assets/images/css-logo.png"
-                  alt="CSS"
-                  width="16"
-                  class="me-1"
-                />
-                CSS3
-              </span>
-            </div>
-
-            <div class="mt-auto">
-              <a
-                href="https://github.com/machado211993/Municipalidad_Loreto"
-                target="_blank"
-                class="btn btn-dark w-100"
-                rel="noopener noreferrer"
-              >
-                <i class="bi bi-github me-2"></i>Ver Código
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Proyecto 2 -->
-      <div
-        class="col-lg-4 col-md-6 animate-fadeInUp"
-        style="animation-delay: 0.1s"
+    <div class="projects-grid">
+      <article
+        *ngFor="let project of projects; let i = index"
+        class="project-card"
+        [class.card-featured]="project.featured"
+        [style.animation-delay]="i * 0.08 + 's'"
       >
-        <div class="project-card card h-100 border-0 shadow-sm">
-          <div
-            class="card-img-top bg-gradient-success d-flex align-items-center justify-content-center"
-            style="height: 200px"
-          >
-            <i class="bi bi-cart text-white" style="font-size: 4rem"></i>
+        <!-- Card glow effect -->
+        <div class="card-glow"></div>
+
+        <!-- Project Icon -->
+        <div class="card-icon-wrapper">
+          <div class="card-icon-bg" [ngClass]="project.gradient">
+            <i class="bi" [ngClass]="project.icon"></i>
           </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold mb-3">eCommerce Multirubro</h5>
-            <p class="card-text text-muted mb-3">
-              Plataforma de comercio electrónico completa con gestión de
-              productos, carrito de compras y pasarela de pagos.
-            </p>
-
-            <!-- Tech Stack -->
-            <div class="tech-stack mb-3">
-              <span class="badge bg-danger me-2 mb-2">
-                <img
-                  src="assets/images/java-logo.png"
-                  alt="Java"
-                  width="16"
-                  class="me-1"
-                />
-                Java
-              </span>
-              <span class="badge bg-success me-2 mb-2">
-                <img
-                  src="assets/images/springboot-logo.png"
-                  alt="Spring Boot"
-                  width="40"
-                />
-              </span>
-              <span class="badge bg-info me-2 mb-2">
-                <img
-                  src="assets/images/mysql-logo.png"
-                  alt="MySQL"
-                  width="20"
-                  class="me-1"
-                />
-                MySQL
-              </span>
-              <span class="badge bg-warning text-dark me-2 mb-2">
-                <img
-                  src="assets/images/html5-logo.png"
-                  alt="HTML5"
-                  width="16"
-                  class="me-1"
-                />
-                HTML5
-              </span>
-              <span class="badge bg-primary me-2 mb-2">
-                <img
-                  src="assets/images/css-logo.png"
-                  alt="CSS"
-                  width="16"
-                  class="me-1"
-                />
-                CSS3
-              </span>
-            </div>
-
-            <div class="mt-auto">
-              <a
-                href="https://github.com/machado211993/Ecommers-para-Negocios"
-                target="_blank"
-                class="btn btn-dark w-100"
-                rel="noopener noreferrer"
-              >
-                <i class="bi bi-github me-2"></i>Ver Código
-              </a>
-            </div>
+          <div *ngIf="project.featured" class="featured-badge">
+            <i class="bi bi-lightning-fill"></i> Featured
           </div>
         </div>
-      </div>
 
-      <!-- Proyecto 3 -->
-      <div
-        class="col-lg-4 col-md-6 animate-fadeInUp"
-        style="animation-delay: 0.2s"
-      >
-        <div class="project-card card h-100 border-0 shadow-sm">
-          <div
-            class="card-img-top bg-gradient-info d-flex align-items-center justify-content-center"
-            style="height: 200px"
-          >
-            <i class="bi bi-api text-white" style="font-size: 4rem"></i>
-          </div>
-          <div class="card-body d-flex flex-column">
-            <h5 class="card-title fw-bold mb-3">API REST con JSON</h5>
-            <p class="card-text text-muted mb-3">
-              Backend robusto con arquitectura REST, endpoints documentados y
-              respuestas en formato JSON estándar.
-            </p>
+        <!-- Content -->
+        <div class="card-content">
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-desc">{{ project.description }}</p>
 
-            <!-- Tech Stack -->
-            <div class="tech-stack mb-3">
-              <span class="badge bg-danger me-2 mb-2">
-                <img
-                  src="assets/images/java-logo.png"
-                  alt="Java"
-                  width="16"
-                  class="me-1"
-                />
-                Java
-              </span>
-              <span class="badge bg-success me-2 mb-2">
-                <img
-                  src="assets/images/springboot-logo.png"
-                  alt="Spring Boot"
-                  width="40"
-                />
-              </span>
-              <span class="badge bg-info me-2 mb-2">
-                <img
-                  src="assets/images/mysql-logo.png"
-                  alt="MySQL"
-                  width="20"
-                  class="me-1"
-                />
-                MySQL
-              </span>
-              <span class="badge bg-secondary me-2 mb-2">
-                <i class="bi bi-filetype-json me-1"></i>
-                REST API
-              </span>
-            </div>
-
-            <div class="mt-auto">
-              <a
-                href="https://github.com/machado211993/apirest_egg"
-                target="_blank"
-                class="btn btn-dark w-100"
-                rel="noopener noreferrer"
-              >
-                <i class="bi bi-github me-2"></i>Ver Código
-              </a>
-            </div>
+          <!-- Tags -->
+          <div class="tags-row">
+            <span
+              *ngFor="let tag of project.tags"
+              class="tag"
+              [ngClass]="tag.color"
+              >{{ tag.label }}</span
+            >
           </div>
         </div>
-      </div>
+
+        <!-- Actions -->
+        <div class="card-actions">
+          <a
+            [href]="project.githubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-action btn-github"
+          >
+            <i class="bi bi-github"></i>
+            <span>Código</span>
+          </a>
+          <a
+            *ngIf="project.liveUrl"
+            [href]="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-action btn-live"
+          >
+            <i class="bi bi-arrow-up-right-square"></i>
+            <span>Ver Live</span>
+          </a>
+        </div>
+
+        <!-- Card border animated -->
+        <div class="card-border-animated"></div>
+      </article>
     </div>
 
-    <!-- CTA Section -->
-    <div class="text-center mt-5 animate-fadeIn">
-      <p class="lead mb-4">¿Quieres ver más proyectos?</p>
+    <!-- CTA -->
+    <div class="section-cta">
+      <p class="cta-label">¿Querés explorar más?</p>
       <a
         href="https://github.com/machado211993"
         target="_blank"
-        class="btn btn-dark btn-lg px-5"
         rel="noopener noreferrer"
+        class="btn-cta"
       >
-        <i class="bi bi-github me-2"></i>Visitar mi GitHub
+        <i class="bi bi-github"></i>
+        <span>Ver todos en GitHub</span>
+        <i class="bi bi-arrow-right btn-arrow"></i>
       </a>
     </div>
   </div>
-</div>
+</section>

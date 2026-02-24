@@ -1,154 +1,283 @@
-<div class="d-flex flex-column min-vh-100">
-  <!-- Navbar mejorado -->
-  <nav
-    class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
-  >
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" routerLink="/">
-        <svg width="40" height="40" viewBox="0 0 40 40" class="logo-svg me-2">
-          <defs>
-            <linearGradient
-              id="logoGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="100%"
+<div class="app-shell">
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar" [class.navbar-scrolled]="isScrolled">
+    <div class="nav-container">
+      <!-- Brand -->
+      <a class="nav-brand" routerLink="/">
+        <div class="brand-logo">
+          <svg width="36" height="36" viewBox="0 0 36 36">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color: #6ee7f7" />
+                <stop offset="100%" style="stop-color: #a78bfa" />
+              </linearGradient>
+            </defs>
+            <rect
+              width="36"
+              height="36"
+              rx="10"
+              fill="url(#logoGrad)"
+              opacity="0.15"
+            />
+            <rect
+              width="36"
+              height="36"
+              rx="10"
+              fill="none"
+              stroke="url(#logoGrad)"
+              stroke-width="1.5"
+            />
+            <text
+              x="50%"
+              y="50%"
+              text-anchor="middle"
+              dy=".36em"
+              fill="url(#logoGrad)"
+              font-size="14"
+              font-weight="800"
+              font-family="Syne, sans-serif"
             >
-              <stop offset="0%" style="stop-color: #667eea; stop-opacity: 1" />
-              <stop
-                offset="100%"
-                style="stop-color: #764ba2; stop-opacity: 1"
-              />
-            </linearGradient>
-          </defs>
-          <rect width="40" height="40" rx="8" fill="url(#logoGradient)" />
-          <text
-            x="50%"
-            y="50%"
-            text-anchor="middle"
-            dy=".35em"
-            fill="white"
-            font-size="18"
-            font-weight="bold"
-          >
-            JM
-          </text>
-        </svg>
-        <span class="fw-bold text-primary d-none d-sm-inline"
-          >José Machado</span
-        >
+              JM
+            </text>
+          </svg>
+        </div>
+        <span class="brand-name">José Machado</span>
       </a>
 
-      <button
-        class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- Desktop Links -->
+      <ul class="nav-links">
+        <li>
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="nav-link-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            routerLink="/sobre-mi"
+            routerLinkActive="nav-link-active"
+            >Sobre Mí</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            routerLink="/proyectos"
+            routerLinkActive="nav-link-active"
+            >Proyectos</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            routerLink="/apis"
+            routerLinkActive="nav-link-active"
+            >APIs</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link nav-link-weather"
+            routerLink="/clima"
+            routerLinkActive="nav-link-active"
+          >
+            <i class="bi bi-cloud-sun"></i> Clima
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-link nav-cta"
+            routerLink="/contacto"
+            routerLinkActive="nav-link-active"
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-lg-2">
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }"
-            >
-              Inicio
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/sobre-mi"
-              routerLinkActive="active"
-            >
-              Sobre Mí
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/proyectos"
-              routerLinkActive="active"
-            >
-              Proyectos
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/contacto"
-              routerLinkActive="active"
-            >
-              Contacto
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/apis"
-              routerLinkActive="active"
-            >
-              APIs
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="nav-link px-3 rounded"
-              routerLink="/clima"
-              routerLinkActive="active"
-            >
-              <i class="bi bi-cloud-sun me-1"></i>Clima
-            </a>
-          </li>
-        </ul>
-      </div>
+      <!-- Mobile toggle -->
+      <button
+        class="nav-toggle"
+        (click)="toggleMenu()"
+        [class.open]="menuOpen"
+        aria-label="Menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.mobile-menu-open]="menuOpen">
+      <ul class="mobile-links">
+        <li>
+          <a
+            routerLink="/"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/sobre-mi"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            >Sobre Mí</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/proyectos"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            >Proyectos</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/apis"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            >APIs</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/clima"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            ><i class="bi bi-cloud-sun me-2"></i>Clima</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/contacto"
+            (click)="closeMenu()"
+            routerLinkActive="mobile-link-active"
+            >Contacto</a
+          >
+        </li>
+      </ul>
     </div>
   </nav>
 
-  <!-- Contenido principal -->
-  <main class="flex-grow-1">
+  <!-- ===================== MAIN ===================== -->
+  <main class="app-main">
     <router-outlet></router-outlet>
   </main>
 
-  <!-- Footer mejorado -->
-  <footer class="bg-dark text-white mt-auto">
-    <div class="container py-4">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-          <p class="mb-0">
-            © 2024 Mi Portafolio. Todos los derechos reservados.
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="app-footer">
+    <div class="footer-glow"></div>
+    <div class="footer-container">
+      <div class="footer-top">
+        <!-- Brand col -->
+        <div class="footer-brand-col">
+          <a class="footer-brand" routerLink="/">
+            <svg width="32" height="32" viewBox="0 0 36 36">
+              <defs>
+                <linearGradient
+                  id="footerLogoGrad"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="100%"
+                >
+                  <stop offset="0%" style="stop-color: #6ee7f7" />
+                  <stop offset="100%" style="stop-color: #a78bfa" />
+                </linearGradient>
+              </defs>
+              <rect
+                width="36"
+                height="36"
+                rx="10"
+                fill="url(#footerLogoGrad)"
+                opacity="0.15"
+              />
+              <rect
+                width="36"
+                height="36"
+                rx="10"
+                fill="none"
+                stroke="url(#footerLogoGrad)"
+                stroke-width="1.5"
+              />
+              <text
+                x="50%"
+                y="50%"
+                text-anchor="middle"
+                dy=".36em"
+                fill="url(#footerLogoGrad)"
+                font-size="14"
+                font-weight="800"
+                font-family="Syne, sans-serif"
+              >
+                JM
+              </text>
+            </svg>
+            <span>José Machado</span>
+          </a>
+          <p class="footer-tagline">
+            Desarrollador Full Stack. Código limpio, soluciones reales.
           </p>
         </div>
-        <div class="col-md-6 text-center text-md-end">
-          <a
-            href="#"
-            class="text-white text-decoration-none me-3"
-            aria-label="LinkedIn"
-          >
-            <i class="bi bi-linkedin fs-5"></i>
-          </a>
-          <a
-            href="#"
-            class="text-white text-decoration-none me-3"
-            aria-label="GitHub"
-          >
-            <i class="bi bi-github fs-5"></i>
-          </a>
-          <a
-            href="#"
-            class="text-white text-decoration-none"
-            aria-label="Email"
-          >
-            <i class="bi bi-envelope fs-5"></i>
-          </a>
+
+        <!-- Nav col -->
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Navegación</span>
+          <ul class="footer-nav-list">
+            <li><a routerLink="/">Inicio</a></li>
+            <li><a routerLink="/sobre-mi">Sobre Mí</a></li>
+            <li><a routerLink="/proyectos">Proyectos</a></li>
+            <li><a routerLink="/contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Social col -->
+        <div class="footer-social-col">
+          <span class="footer-col-title">Conectar</span>
+          <div class="social-links">
+            <a
+              href="#"
+              class="social-btn"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="bi bi-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/machado211993"
+              class="social-btn"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="bi bi-github"></i>
+            </a>
+            <a routerLink="/contacto" class="social-btn" aria-label="Email">
+              <i class="bi bi-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-line"></div>
+        <div class="footer-bottom-row">
+          <p class="footer-copy">
+            © 2025 José Manuel Machado. Todos los derechos reservados.
+          </p>
+          <p class="footer-made">
+            Hecho con <span class="heart">♥</span> en Angular
+          </p>
         </div>
       </div>
     </div>

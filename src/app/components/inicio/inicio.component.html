@@ -1,113 +1,187 @@
-<div class="home-container">
-  <!-- Hero Section -->
-  <section class="hero-section py-5">
+<div class="inicio-wrapper">
+  <!-- Background decoration global -->
+  <div class="bg-decoration" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-section">
     <div class="container">
-      <div class="row align-items-center min-vh-75">
-        <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="hero-content animate-fadeIn">
-            <h1 class="display-3 fw-bold mb-3">
-              Hola, soy <span class="text-primary">José Manuel Machado</span>
-            </h1>
-            <h2 class="h4 text-muted mb-4">Desarrollador Full Stack</h2>
-            <p class="lead mb-4">
-              Transformo ideas en experiencias digitales únicas. Apasionado por
-              crear soluciones innovadoras con código limpio y eficiente.
-            </p>
-            <div class="d-flex gap-3 flex-wrap">
-              <a routerLink="/proyectos" class="btn btn-primary btn-lg px-4">
-                <i class="bi bi-briefcase me-2"></i>Ver Proyectos
-              </a>
-              <a
-                routerLink="/contacto"
-                class="btn btn-outline-primary btn-lg px-4"
-              >
-                <i class="bi bi-envelope me-2"></i>Contactar
-              </a>
+      <div class="hero-grid">
+        <!-- Text side -->
+        <div class="hero-content">
+          <span class="hero-eyebrow">Full Stack Developer</span>
+
+          <h1 class="hero-title">
+            Hola, soy<br />
+            <span class="hero-name">José Manuel<br />Machado</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Transformo ideas en experiencias digitales únicas. Apasionado por
+            crear soluciones innovadoras con código limpio y eficiente.
+          </p>
+
+          <div class="hero-actions">
+            <a routerLink="/proyectos" class="btn-hero btn-hero-primary">
+              <i class="bi bi-briefcase"></i>
+              <span>Ver Proyectos</span>
+              <i class="bi bi-arrow-right btn-arrow"></i>
+            </a>
+            <a routerLink="/contacto" class="btn-hero btn-hero-outline">
+              <i class="bi bi-envelope"></i>
+              <span>Contactar</span>
+            </a>
+          </div>
+
+          <!-- Stats row -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">7+</span>
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Full</span>
+              <span class="stat-label">Stack</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Dedicación</span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-6">
-          <div class="hero-image animate-slideIn">
+        <!-- Image side -->
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <div class="frame-glow"></div>
             <img
               src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop"
               alt="Desarrollo de Software"
-              class="img-fluid rounded-4 shadow-lg"
+              class="hero-image"
             />
+            <!-- Floating badge -->
+            <div class="floating-badge badge-top">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Disponible para proyectos</span>
+            </div>
+            <div class="floating-badge badge-bottom">
+              <i class="bi bi-stars"></i>
+              <span>Angular · Java · PHP</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Highlight Section -->
-  <section class="skills-highlight py-5 bg-light">
+  <!-- ===================== SKILLS ===================== -->
+  <section class="skills-section">
     <div class="container">
-      <div class="row text-center g-4">
-        <div class="col-md-4">
-          <div class="skill-card p-4 bg-white rounded-3 shadow-sm h-100">
-            <div class="icon-box mb-3">
-              <i class="bi bi-code-slash text-primary fs-1"></i>
-            </div>
-            <h3 class="h5 fw-bold">Desarrollo Frontend</h3>
-            <p class="text-muted mb-0">
-              Creación de interfaces modernas y responsivas con las últimas
-              tecnologías
+      <div class="section-label">
+        <span>Lo que hago</span>
+        <div class="label-line"></div>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card skill-card-1">
+          <div class="skill-icon-wrap">
+            <i class="bi bi-code-slash"></i>
+          </div>
+          <div class="skill-body">
+            <h3 class="skill-title">Frontend</h3>
+            <p class="skill-desc">
+              Interfaces modernas y responsivas con Angular, HTML5 y CSS3 de
+              última generación.
             </p>
+          </div>
+          <div class="skill-tech-dots">
+            <span>Angular</span><span>HTML5</span><span>CSS3</span>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="skill-card p-4 bg-white rounded-3 shadow-sm h-100">
-            <div class="icon-box mb-3">
-              <i class="bi bi-server text-primary fs-1"></i>
-            </div>
-            <h3 class="h5 fw-bold">Desarrollo Backend</h3>
-            <p class="text-muted mb-0">
-              APIs robustas y escalables con arquitecturas eficientes
+        <div class="skill-card skill-card-2">
+          <div class="skill-icon-wrap">
+            <i class="bi bi-server"></i>
+          </div>
+          <div class="skill-body">
+            <h3 class="skill-title">Backend</h3>
+            <p class="skill-desc">
+              APIs robustas y escalables con Java Spring Boot, PHP y
+              arquitecturas limpias.
             </p>
+          </div>
+          <div class="skill-tech-dots">
+            <span>Java</span><span>Spring Boot</span><span>PHP</span>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="skill-card p-4 bg-white rounded-3 shadow-sm h-100">
-            <div class="icon-box mb-3">
-              <i class="bi bi-laptop text-primary fs-1"></i>
-            </div>
-            <h3 class="h5 fw-bold">Soluciones Completas</h3>
-            <p class="text-muted mb-0">
-              Proyectos end-to-end desde la idea hasta el deployment
+        <div class="skill-card skill-card-3">
+          <div class="skill-icon-wrap">
+            <i class="bi bi-database"></i>
+          </div>
+          <div class="skill-body">
+            <h3 class="skill-title">Base de Datos</h3>
+            <p class="skill-desc">
+              Diseño y gestión eficiente con MySQL, modelado relacional y
+              optimización de queries.
             </p>
+          </div>
+          <div class="skill-tech-dots">
+            <span>MySQL</span><span>MVC</span><span>REST</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Projects Section -->
-  <section class="featured-projects py-5">
+  <!-- ===================== FEATURED PROJECTS ===================== -->
+  <section class="featured-section">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold mb-3">Proyectos Destacados</h2>
-        <p class="lead text-muted">Algunos de mis trabajos recientes</p>
+      <div class="featured-header">
+        <div>
+          <span class="section-eyebrow">Portafolio</span>
+          <h2 class="section-title">
+            Proyectos <span class="title-accent">Destacados</span>
+          </h2>
+        </div>
+        <a routerLink="/proyectos" class="see-all-link">
+          Ver todos <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
       <app-proyectos></app-proyectos>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about-preview py-5 bg-light">
+  <!-- ===================== SOBRE MÍ ===================== -->
+  <section class="about-section">
     <div class="container">
+      <div class="about-header">
+        <span class="section-eyebrow">Quién soy</span>
+        <h2 class="section-title">
+          Sobre <span class="title-accent">Mí</span>
+        </h2>
+      </div>
       <app-sobre-mi></app-sobre-mi>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="contact-preview py-5">
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="contact-section">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="display-5 fw-bold mb-3">¿Tienes un proyecto en mente?</h2>
-        <p class="lead text-muted">Trabajemos juntos para hacerlo realidad</p>
+      <div class="contact-header">
+        <span class="section-eyebrow">Trabajemos juntos</span>
+        <h2 class="section-title">
+          ¿Tenés un proyecto <span class="title-accent">en mente?</span>
+        </h2>
+        <p class="section-subtitle">
+          Estoy disponible para nuevos proyectos y colaboraciones. ¡Hablemos!
+        </p>
       </div>
       <app-contacto></app-contacto>
     </div>

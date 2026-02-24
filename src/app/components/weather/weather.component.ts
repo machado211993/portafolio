@@ -1,10 +1,12 @@
-// src/app/components/weather/weather.component.ts
-
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { WeatherService } from '../../services/weather-service.service';
 
 @Component({
   selector: 'app-weather',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.css'],
 })
@@ -12,7 +14,7 @@ export class WeatherComponent implements OnInit {
   city: string = 'Corrientes';
   weatherData: any;
   errorMessage: string = '';
-  isLoading: boolean = false; // Opcional: para mostrar spinner
+  isLoading: boolean = false;
 
   constructor(private weatherService: WeatherService) {}
 
