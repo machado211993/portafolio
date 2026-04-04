@@ -23,6 +23,23 @@ interface Project {
 export class ProyectosComponent {
   projects: Project[] = [
     {
+      id: 8,
+      title: 'Centenario Bebidas',
+      description:
+        'Sitio web para distribuidora de bebidas Centenario. Plataforma moderna con catálogo de productos, información de la empresa y canales de contacto para clientes.',
+      icon: 'bi-cup-straw',
+      gradient: 'grad-blue',
+      tags: [
+        { label: 'Angular', color: 'tag-red' },
+        { label: 'TypeScript', color: 'tag-cyan' },
+        { label: 'HTML5', color: 'tag-orange' },
+        { label: 'CSS3', color: 'tag-blue' },
+      ],
+      githubUrl: 'https://github.com/machado211993/centenario',
+      liveUrl: 'https://www.centenariobebidas.com/#/',
+      featured: true,
+    },
+    {
       id: 1,
       title: 'Municipalidad de Loreto',
       description:
