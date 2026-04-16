@@ -32,8 +32,42 @@
         <!-- Card glow effect -->
         <div class="card-glow"></div>
 
-        <!-- Project Icon -->
-        <div class="card-icon-wrapper">
+        <!-- Project Preview Image (si tiene captura) -->
+        <div
+          *ngIf="project.image"
+          class="card-preview"
+          (click)="toggleZoom(project.id)"
+          title="Click para ampliar imagen"
+        >
+          <img
+            [src]="project.image"
+            [alt]="project.title"
+            class="card-preview-img"
+          />
+          <div class="card-preview-overlay">
+            <div *ngIf="project.featured" class="featured-badge">
+              <i class="bi bi-lightning-fill"></i> Featured
+            </div>
+          </div>
+        </div>
+
+        <!-- Zoom Overlay (Ocupa el tamaño total de la card) -->
+        <div
+          *ngIf="project.image && zoomedProject === project.id"
+          class="card-zoom-overlay"
+          (click)="toggleZoom(project.id)"
+          title="Click para cerrar"
+        >
+          <div class="zoom-close-hint"><i class="bi bi-x-lg"></i></div>
+          <img
+            [src]="project.image"
+            [alt]="project.title"
+            class="zoom-overlay-img"
+          />
+        </div>
+
+        <!-- Project Icon (si NO tiene captura) -->
+        <div *ngIf="!project.image" class="card-icon-wrapper">
           <div class="card-icon-bg" [ngClass]="project.gradient">
             <i class="bi" [ngClass]="project.icon"></i>
           </div>

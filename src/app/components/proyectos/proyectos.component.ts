@@ -11,6 +11,7 @@ interface Project {
   githubUrl: string;
   liveUrl?: string;
   featured?: boolean;
+  image?: string;
 }
 
 @Component({
@@ -21,6 +22,12 @@ interface Project {
   styleUrl: './proyectos.component.css',
 })
 export class ProyectosComponent {
+  zoomedProject: number | null = null;
+
+  toggleZoom(projectId: number): void {
+    this.zoomedProject = this.zoomedProject === projectId ? null : projectId;
+  }
+
   projects: Project[] = [
     {
       id: 8,
@@ -38,6 +45,42 @@ export class ProyectosComponent {
       githubUrl: 'https://github.com/machado211993/centenario',
       liveUrl: 'https://www.centenariobebidas.com/#/',
       featured: true,
+      image: 'assets/images/centenario.png',
+    },
+    {
+      id: 9,
+      title: 'Distribuidora CRI-LU',
+      description:
+        'Sitio web para Distribuidora CRI-LU, distribuidora oficial de productos Manfrey en Corrientes. Plataforma moderna con catálogo de productos, información de la empresa y canales de contacto.',
+      icon: 'bi-truck',
+      gradient: 'grad-blue',
+      tags: [
+        { label: 'Angular', color: 'tag-red' },
+        { label: 'TypeScript', color: 'tag-cyan' },
+        { label: 'HTML5', color: 'tag-orange' },
+        { label: 'CSS3', color: 'tag-blue' },
+      ],
+      githubUrl: 'https://github.com/machado211993/crilu-project',
+      liveUrl: 'https://crilu-project.manuel-machado-j-m.workers.dev/#/',
+      featured: true,
+      image: 'assets/images/manfrey.png',
+    },
+    {
+      id: 5,
+      title: 'El Dato Barbershop',
+      description:
+        'Sitio web profesional para una barbería local, construido con Angular 18 standalone components. Diseño moderno con secciones de servicios, galería y contacto.',
+      icon: 'bi-scissors',
+      gradient: 'grad-amber',
+      tags: [
+        { label: 'Angular 18', color: 'tag-red' },
+        { label: 'Standalone', color: 'tag-blue' },
+        { label: 'TypeScript', color: 'tag-cyan' },
+      ],
+      githubUrl: 'https://github.com/machado211993/eldato-barbershop',
+      liveUrl: 'https://eldato-barbershop.vercel.app/#/',
+      featured: true,
+      image: 'assets/images/dato.png',
     },
     {
       id: 1,
@@ -54,6 +97,7 @@ export class ProyectosComponent {
       githubUrl: 'https://github.com/machado211993/Municipalidad_Loreto',
       liveUrl: 'http://municipalidadloreto.com/',
       featured: true,
+      image: 'assets/images/muni.png',
     },
     {
       id: 2,
@@ -100,22 +144,7 @@ export class ProyectosComponent {
       ],
       githubUrl: 'https://github.com/machado211993/Proyecto-JHipster',
     },
-    {
-      id: 5,
-      title: 'El Dato Barbershop',
-      description:
-        'Sitio web profesional para una barbería local, construido con Angular 18 standalone components. Diseño moderno con secciones de servicios, galería y contacto.',
-      icon: 'bi-scissors',
-      gradient: 'grad-amber',
-      tags: [
-        { label: 'Angular 18', color: 'tag-red' },
-        { label: 'Standalone', color: 'tag-blue' },
-        { label: 'TypeScript', color: 'tag-cyan' },
-      ],
-      githubUrl: 'https://github.com/machado211993/eldato-barbershop',
-      liveUrl: 'https://eldato-barbershop.vercel.app/#/',
-      featured: true,
-    },
+
     {
       id: 6,
       title: 'Mate Store',
